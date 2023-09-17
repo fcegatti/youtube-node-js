@@ -1,0 +1,16 @@
+{
+  "name": "todocli",
+  "version": "1.0.0",
+  "description": "Un ToDoList básico desde la CLI de Node",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jonathan MirCha",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
+}
