@@ -15,7 +15,7 @@ function displayMenu() {
   console.log('2. Listar tareas');
   console.log('3. Completar tarea');
   console.log('4. Salir');
-  console.log('\n');
+  console.log('\n\n');
 }
 
 function addTask() {
@@ -32,7 +32,7 @@ function listTasks () {
   console.log(chalk.yellow.bold(`\n🦊🦊🦊🦊🦊 ${chalk.redBright.bold('To Do App')} 🦊🦊🦊🦊🦊\n`));
 
   if (tasks.length === 0) {
-    console.log(chalk.green.bold(`No hay tareas por hacer \n\n`));
+    console.log(chalk.green.bold(`No hay tareas por hacer 😉👌🏻\n`));
   } else {
     tasks.forEach((task, index) => {
       let status = task.completed ? '✅' : '❌';
@@ -47,9 +47,21 @@ function listTasks () {
   
   displayMenu();
   chooseOption();
-
 }
 
+function completeTask() {
+  rl.question(chalk.bgMagentaBright('Escribe el número de la tarea a completar: '), (taskNumber) => {
+    const index = parseInt(taskNumber) -1;
+    if (index >= 0 && index < tasks.length) {
+      tasks[index].completed = true;
+      console.log(chalk.green.bold('Tarea completada con éxito ✅\n'));
+    } else {
+      console.log(chalk.red.bold('Número de tarea no válido\n'));
+    }
+    displayMenu();
+    chooseOption();
+  });
+}
 function chooseOption() {
   rl.question('Elige una opción: ', (choice) => {
     switch (choice) {
@@ -60,14 +72,14 @@ function chooseOption() {
         listTasks();
         break;
       case '3':
-        console.log("Completar Tarea");
+        completeTask();
         break;
       case '4':
         console.log(chalk.yellow(`Adiós 👋🦊`));
         rl.close();
         break;
       default:
-        console.log(chalk.red('Opción inválida, intenta nuevamente \n\n'));
+        console.log(chalk.red('Opción no válida, intenta nuevamente\n'));
         displayMenu();
         chooseOption();
     }
