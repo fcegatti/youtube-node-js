@@ -32,7 +32,12 @@ function chooseOption() {
         console.log(chalk.yellow(`Adiós 👋🦊`));
         rl.close();
         break;
+      default:
+        console.log(chalk.red('Opción inválida, intenta nuevamente \n'));
+        displayMenu();
+        chooseOption();
     }
   });
 }
 displayMenu();
+chooseOption()
