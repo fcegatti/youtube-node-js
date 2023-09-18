@@ -20,10 +20,19 @@ function displayMenu() {
   console.log('\n\n');
 }
 
+function loadTask() {
+
+}
+
+function saveTask() {
+  
+}
+
 function addTask() {
   rl.question(chalk.bgMagentaBright('Escribe la tarea: '), (task) => {
     tasks.push({ task, complete: false });
     console.log(chalk.green.bold('Tarea agregada con éxito\n\n'));
+    saveTask();
     displayMenu();
     chooseOption();
     console.log(tasks);
@@ -47,6 +56,7 @@ function listTasks () {
     });
   }
   
+  loadTask();
   displayMenu();
   chooseOption();
 }
@@ -56,6 +66,7 @@ function completeTask() {
     const index = parseInt(taskNumber) -1;
     if (index >= 0 && index < tasks.length) {
       tasks[index].completed = true;
+      saveTask();
       console.log(chalk.green.bold('Tarea completada con éxito ✅\n'));
     } else {
       console.log(chalk.red.bold('Número de tarea no válido\n'));
