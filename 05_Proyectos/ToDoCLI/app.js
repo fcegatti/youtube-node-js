@@ -17,11 +17,21 @@ function displayMenu() {
   console.log('4. Salir');
 }
 
+function addTask() {
+  rl.question(chalk.bgMagentaBright('Escribe la tarea: '), (task) => {
+    tasks.push({ task, complete: false });
+    console.log(chalk.green.bold('Tarea agregada con éxito'));
+    displayMenu();
+    chooseOption();
+    console.log(tasks);
+  });
+}
+
 function chooseOption() {
   rl.question('Elige una opción: ', (choice) => {
     switch (choice) {
       case '1':
-        console.log("Crear Tarea");
+        addTask();
         break;
       case '2':
         console.log("Listar Tareas");
