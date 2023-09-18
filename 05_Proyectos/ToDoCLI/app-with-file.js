@@ -32,21 +32,21 @@ function loadTask() {
         tasks.push({task, completed: completed === true});
       }
     });
-
     console.log(chalk.green.bold('Las tareas se han cargado desde la BD\n'));
   } catch (err) {
     console.log(chalk.green.bold(`No hay tareas pendientes 😉👌🏻\n`));
   }
-
 }
 
 function saveTask() {
-  
+  const data = tasks.map((task) => `${task.task}|${task.completed}`).join('\n');
+  writeFileSync(DB_FILE, data, 'utf-8');
+  console.log(chalk.green.bold(`Tareas agregadas a la BD con éxito 👌🏻\n`));
 }
 
 function addTask() {
   rl.question(chalk.bgMagentaBright('Escribe la tarea: '), (task) => {
-    tasks.push({ task, complete: false });
+    tasks.push({ task, completed: false });
     console.log(chalk.green.bold('Tarea agregada con éxito\n\n'));
     saveTask();
     displayMenu();
