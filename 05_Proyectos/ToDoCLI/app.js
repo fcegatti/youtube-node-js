@@ -16,4 +16,23 @@ function displayMenu() {
   console.log('4. Salir');
 }
 
+function chooseOption() {
+  rl.question('Elige una opción: ', (choice) => {
+    switch (choice) {
+      case '1':
+        console.log("Crear Tarea");
+        break;
+      case '2':
+        console.log("Listar Tareas");
+        break;
+      case '3':
+        console.log("Completar Tarea");
+        break;
+      case '4':
+        console.log(chalk.yellow(`Adiós 👋🦊`));
+        rl.close();
+        break;
+    }
+  });
+}
 displayMenu();
