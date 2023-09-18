@@ -21,6 +21,22 @@ function displayMenu() {
 }
 
 function loadTask() {
+  try {
+    const data = readFileSync(DB_FILE, 'utf-8');
+    const lines = data.split('\n');
+    tasks.length = 0;
+    
+    lines.forEach((line) => {
+      if (line.trim() !== '') {
+        const [task, completed] = line.split("|");
+        tasks.push({task, completed: completed === true});
+      }
+    });
+
+    console.log(chalk.green.bold('Las tareas se han cargado desde la BD\n'));
+  } catch (err) {
+    console.log(chalk.green.bold(`No hay tareas pendientes 😉👌🏻\n`));
+  }
 
 }
 
