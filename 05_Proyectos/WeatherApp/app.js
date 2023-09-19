@@ -1,7 +1,7 @@
 import axios from "axios";
 import chalk from "chalk";
 
-const API_KEY = '7f6785a3e59a48b7d2758aa50794cd18';
+const API_KEY = '';
 
 function displayWeather(city, weatherData) {
   console.log(chalk.yellow.bold(`\nInformación del clima: ${city}:`));
