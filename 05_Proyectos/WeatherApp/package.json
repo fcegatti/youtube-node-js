@@ -1,0 +1,13 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "App para ver información del clima de la ciudad ingresada por el usuario",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Jponathan MIrCha",
+  "license": "MIT"
+}
