@@ -1,4 +1,4 @@
-import {parse} from 'url';
+import { parse } from 'url';
 
 const urlString = 
   'https://www.ejempo.com:8080/ruta?parametro1=valor1&parametro2=valor2';
