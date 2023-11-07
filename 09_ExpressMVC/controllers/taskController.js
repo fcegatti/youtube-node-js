@@ -7,7 +7,9 @@ const getAllTasks = (req, res) => {
   res.render("index", { title: 'Lista de Tareas', tasks });
 };
 
-const getAddTaskForm = (req, res) => {};
+const getAddTaskForm = (req, res) => {
+  res.render("add", { title: 'Agregar Tarea' });
+};
 
 const addTask = (req, res) => {};
 
