@@ -19,7 +19,16 @@ const addTask = (req, res) => {
   res.redirect("/");
 };
 
-const getEditTaskForm = (req, res) => {};
+const getEditTaskForm = (req, res) => {
+  let id = parseInt(req.params.id);
+  let task = tasks.find(task => task.id === id);
+
+  if (!task) {
+    res.redirect("/");
+  } else {
+    res.render("edit", { title: "Editar Tarea", task });
+  }
+};
 
 const editTask = (req, res) => {};
 
