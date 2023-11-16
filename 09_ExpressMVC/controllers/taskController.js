@@ -30,7 +30,18 @@ const getEditTaskForm = (req, res) => {
   }
 };
 
-const editTask = (req, res) => {};
+const editTask = (req, res) => {
+  let id = parseInt(req.params.id);
+  let taskIndex = tasks.findIndex((task) => task.id === id);
+  console.log(taskIndex);
+
+  if (taskIndex === -1) {
+    res.redirect("/");
+  } else {
+    tasks[taskIndex].title = req.body.title;
+    res.redirect("/");
+  }
+};
 
 const completeTask = (req, res) => {};
 
