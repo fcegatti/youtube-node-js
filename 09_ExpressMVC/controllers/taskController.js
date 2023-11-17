@@ -43,9 +43,25 @@ const editTask = (req, res) => {
   }
 };
 
-const completeTask = (req, res) => {};
+const completeTask = (req, res) => {
+  let id = parseInt(req.params.id);
+  let task = tasks.find((task) => task.id === id);
 
-const uncompleteTask = (req, res) => {};
+  if (task) {
+    task.completed = true;
+  }
+  res.redirect("/");
+};
+
+const uncompleteTask = (req, res) => {
+  let id = parseInt(req.params.id);
+  let task = tasks.find((task) => task.id === id);
+
+  if (task) {
+    task.completed = false;
+  }
+  res.redirect("/");
+};
 
 const deleteTask = (req, res) => {};
 
