@@ -63,7 +63,11 @@ const uncompleteTask = (req, res) => {
   res.redirect("/");
 };
 
-const deleteTask = (req, res) => {};
+const deleteTask = (req, res) => {
+  let id = parseInt(req.params.id);  
+  tasks = tasks.filter((task) => task.id !== id);
+  res.redirect("/");
+};
 
 export default {
   getAllTasks,
